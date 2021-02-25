@@ -2,27 +2,37 @@
 import java.awt.event.KeyEvent;
 
 
-
+/**
+ * Crea un nuevo partido que añade en la ventana izquierda
+ * @author 1DAW04
+ */
 public class crearPartido extends javax.swing.JFrame
 {
    
-    
+    /**
+     * Clase principal a la que pertenece
+     */
     private Apuesta v;
     
-   
+    /**
+     * Metodo constructor que incia los componentes
+     */
     public crearPartido() 
     {
         initComponents();
     }
 
-   
+    /**
+     * Crea el partido que iniciar los componentes
+     * @param ventana 
+     */
     public crearPartido(Apuesta ventana) 
     {
         initComponents();
         v = ventana;
     }
     
-   
+  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,6 +80,10 @@ public class crearPartido extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Añade el partido creado a la venana a la izquierda de la aplciación
+     * @param p partido que es añadido a la ventana
+     */
     public void añadePartido(String p)
     {
         v.partidoNuevo(p);
@@ -77,10 +91,18 @@ public class crearPartido extends javax.swing.JFrame
         tPartido.requestFocus();
     }
     
+    /**
+     * Agrega el partido que se a creado anteriormente
+     * @param evt el evento que se realiza
+     */
     private void bAgregarPartidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgregarPartidoActionPerformed
         añadePartido(tPartido.getText());
     }//GEN-LAST:event_bAgregarPartidoActionPerformed
 
+    /**
+     * Al pulsar la tecla enter se añade automaticamente el partido que se ha escrito anteriormente
+     * @param evt el evento que se realiza
+     */
     private void tPartidoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tPartidoKeyPressed
         if( evt.getKeyCode() == KeyEvent.VK_ENTER )
         {
@@ -89,6 +111,10 @@ public class crearPartido extends javax.swing.JFrame
     }//GEN-LAST:event_tPartidoKeyPressed
 
     
+    /**
+     * Se añaden los argumentos necesarios para poder ejcutar la aplicación
+     * @param args los argumentos necesarios para el codigo
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
