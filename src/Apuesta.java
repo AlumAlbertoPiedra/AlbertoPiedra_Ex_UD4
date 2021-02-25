@@ -9,16 +9,25 @@ import javax.swing.WindowConstants;
  * and open the template in the editor.
  */
 
+/**
+ * Es una aplicación que crea resultados aleatorios para unos determinados partidos que el usuario eliga.
+ * Procede de javafx.swing.JFrame
+ * @author 1DAW04
+ */
 public class Apuesta extends javax.swing.JFrame {
 
-   
+    /**
+     * Metodo constructor de la clase Apuesta
+     */
     public Apuesta() 
     {
         initComponents();
         this.setResizable(Boolean.FALSE);
     }
 
-   
+    /**
+     * Inicia los componentes graficos necesarios para el codigo como labels y otras cosas.
+     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,6 +130,10 @@ public class Apuesta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Añadir nuevo partido
+     * @param evt el evento que ocurre
+     */
     private void bNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNuevoActionPerformed
         crearPartido agregarpartido = new crearPartido(this);
         agregarpartido.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -129,23 +142,39 @@ public class Apuesta extends javax.swing.JFrame {
         agregarpartido.setTitle("Agregar nuevo partido");
         agregarpartido.setVisible(Boolean.TRUE);
     }//GEN-LAST:event_bNuevoActionPerformed
-
+    /**
+     * Eliminar los partidos añadidos
+     * @param evt el evento que ocurre
+     */
     private void bEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bEliminarActionPerformed
         borraPartido(listaQuiniela.getSelectedIndex());
     }//GEN-LAST:event_bEliminarActionPerformed
-
+    
+    /**
+     * Reiniciar las dos listas
+     * @param evt el evento que ocurre
+     */
     private void bResetearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bResetearActionPerformed
         DefaultListModel modelovacio = new DefaultListModel();
         this.listaQuiniela.setModel(modelovacio);
         this.listaResultados.setModel(modelovacio);
     }//GEN-LAST:event_bResetearActionPerformed
 
-   
+    /**
+     * Saca un número aleatorio
+     * @param n1 un primero número
+     * @param n2 un segundo número
+     * @return devuelve un número
+     */
     public int cualquiera(int n1, int n2)
     {
         return (int)Math.floor((Math.random()*(n2-n1+1) + n1));
     }
     
+    /**
+     * Asigna un resultado aleatorio a cada partido
+     * @param evt el evento que ocurre
+     */
     private void bRealizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bRealizarActionPerformed
         DefaultListModel modeloquinielaresuelta = new DefaultListModel();
 
@@ -172,7 +201,10 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaResultados.setModel(modeloquinielaresuelta);
     }//GEN-LAST:event_bRealizarActionPerformed
 
-    
+    /**
+     * Agrega un partido nuevo
+     * @param partido el nombre 
+     */
     public void partidoNuevo(String partido)
     {
         DefaultListModel modelonuevo = new DefaultListModel();
@@ -186,7 +218,10 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaQuiniela.setModel(modelonuevo);
     }
     
-  
+    /**
+     * Elimina un partido
+     * @param indice se usa para decidir los resultados
+     */
     public void borraPartido(int indice)
     {
         DefaultListModel modelonuevoquiniela = new DefaultListModel();
@@ -212,7 +247,10 @@ public class Apuesta extends javax.swing.JFrame {
         this.listaResultados.setModel(modelonuevoresultados);
     }
     
-   
+    /**
+     * Se añaden los argumentos necesarios para poder ejcutar la aplicación
+     * @param args los argumentos necesarios para el codigo
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
